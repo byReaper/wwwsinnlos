@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $db = mysqli_connect("localhost", "root", "loofti88", "site");
+    include 'config.php';
     $uid = $_POST['uid'];
     $pwd = $_POST['pwd'];
 

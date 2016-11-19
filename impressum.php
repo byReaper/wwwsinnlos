@@ -1,9 +1,13 @@
 <?php
     include 'header.php';
     session_start();
+    $settings = "SELECT * FROM configuration";
+    foreach ($db->query($settings) as $row) {
+
+    }
 ?>
 <p style="padding: 5px;"> <b>Allgemeine Informationen</b></p><hr>
-<p style="padding: 5px;"> Leonard Looft<br>Buchenweg 10<br>25795 Weddingstedt<br>+491775138129<br><br>byreaper@gmx.de</p>
+<p style="padding: 5px;"> <?php echo $row['i_name']; ?><br><?php echo $row['i_anschrift']; ?><br><?php echo $row['i_plz']; ?><br><?php echo $row['i_telnr']; ?><br><br><?php echo $row['i_email']; ?></p>
 
 <p style="padding: 5px;"><b>Weitere Informationen</b></p><hr>
 <h1 style="padding: 5px;">Disclaimer – rechtliche Hinweise</h1>
@@ -22,3 +26,7 @@ Durch den Besuch des Internetauftritts können Informationen (Datum, Uhrzeit, au
 <p style="padding: 5px;">Der Verwendung der Kontaktdaten durch Dritte zur gewerblichen Nutzung wird ausdrücklich widersprochen. Es sei denn, der Anbieter hat zuvor seine schriftliche Einwilligung erteilt.<br />
 Der Anbieter behält sich rechtliche Schritte für den Fall der unverlangten Zusendung von Werbeinformationen, z. B. durch Spam-Mails, vor.<br />
 <strong>Quelle</strong>: <a href="http://www.mustervorlage.net/homepage-kostenlos">Mustervorlage.net</a></p>
+
+<?php
+include 'footer.php';
+?>

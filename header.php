@@ -1,6 +1,6 @@
 <?php
     // Datenbankverbindung aufbauen
-    $db = mysqli_connect("localhost", "root", "loofti88", "site");
+    include 'config.php';
     session_start();
     $settings = "SELECT * FROM configuration";
     foreach ($db->query($settings) as $row) {
@@ -9,23 +9,26 @@
     
 ?>
 <html lang="de-de">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
 	<meta charset="UTF-8">
     <link href="style.css" rel="stylesheet">
 	<head>
 		<title><?php echo $row['sitename']; ?></title>
         <style>
+            @import url('https://fonts.googleapis.com/css?family=Droid+Serif');
             .bg-info{background-color:#f2dede;}
             a.bg-info:focus,a.bg-info:hover{background-color:#e4b9b9;}
             * {
                 margin: 0px;
                 padding: 0px;
                 text-decoration: none;
+                font-family: 'Droid Serif', 'sans-serif';
             }
             header {
                 width: 100%;
                 height: 60px;
-                background-color: #222222;
+                background-color: #222222;+
+                position: fixed;
             }
             nav ul  {
                 float: right;
