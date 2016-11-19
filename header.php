@@ -75,13 +75,12 @@
         </style>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
-	
+
 	<body>
     <header>
         <nav>
             <ul>
                 <li><a href="index.php">Startseite</a></li>
-                <li><a href="impressum.php">Impressum</a></li>
                 <li><a href="kontakt.php">Kontakt</a></li>
 
                 <?php

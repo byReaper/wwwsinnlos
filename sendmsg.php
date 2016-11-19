@@ -1,5 +1,9 @@
 <?php
 include 'header.php';
+$url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+if (strpos($url, 'info=success') !== false) {
+    echo "<b><p style='font-family: Arial; color: green;' align='center'>Nachricht wurde erfolgreich gesendet.</p></b>";
+}
 ?>
 <html>
     <style>

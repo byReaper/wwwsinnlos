@@ -1,6 +1,6 @@
 <?php
     include 'config.php';
-    $copyright = "SELECT copyright FROM configuration";
+    $copyright = "SELECT * FROM configuration";
     foreach ($db->query($copyright) as $row) {
 
     }
@@ -42,6 +42,6 @@
         }
     </style>
     <footer>
-        <p align="center"><?php echo  $row['copyright']; ?> | <a href="impressum.php">Impressum</a></p>
+        <p align="center"><?php echo  $row['copyright']; ?> | Seitenversion: v<?php echo  $row['version']; ?> | <a href="impressum.php">Impressum</a> | <a href="updates.php">Updates</a> | <a href="todo.php">ToDo-Liste</a></p>
     </footer>
 </html>
