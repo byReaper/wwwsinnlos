@@ -1,6 +1,5 @@
 <?php
     include 'header.php';
-    session_start();
     $settings = "SELECT * FROM configuration";
     foreach ($db->query($settings) as $row) {
 

@@ -1,5 +1,4 @@
 <?php
-    // Datenbankverbindung aufbauen
     include 'config.php';
     session_start();
     $settings = "SELECT * FROM configuration";
@@ -23,6 +22,11 @@
                 padding: 0px;
                 text-decoration: none;
                 font-family: 'Droid Serif', 'sans-serif';
+            }
+            IMG.displayed {
+                display: block;
+                margin-left: auto;
+                margin-right: auto 
             }
             header {
                 width: 100%;
@@ -82,7 +86,7 @@
 
                 <?php
                     if (isset($_SESSION['id'])) {
-                        echo "<font style='color: white;'>Du bist mit der ID: ".$_SESSION['id']." eingeloggt!</font><li><a href='user.php''>Controlpanel</a></li>";
+                        echo "<font style='color: white;'>Du bist mit der ID: ".$_SESSION['id']." eingeloggt!</font><li><a href='user.php''>Controlpanel</a></li><li><a href='msgs.php''>Posteingang</a></li>";
                         echo "<form action='includes/logout.inc.php'>
                             <button>Ausloggen</button>
                         </form>";

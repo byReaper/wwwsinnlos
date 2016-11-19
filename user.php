@@ -1,7 +1,7 @@
 <?php
     include('header.php');
-    session_start();
-    $user = "SELECT * FROM user";
+    $sid = $_SESSION['id'];
+    $user = "SELECT * FROM user WHERE id='$sid'";
     foreach ($db->query($user) as $row) {
 
     }

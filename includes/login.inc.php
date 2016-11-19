@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include 'config.php';
+    include '../config.php';
     $uid = $_POST['uid'];
     $pwd = $_POST['pwd'];
 

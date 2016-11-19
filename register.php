@@ -8,9 +8,9 @@
     	    if (strpos($url, 'error=empty') !== false) {
                 echo "<b><p style='font-family: Arial; color: red;' align='center'>Du hast ein freies Feld gelassen. Bitte fülle alles aus!</p></b>";
             }
-            elseif (strpos($url, 'error=username') !== false) {
+          /*  elseif (strpos($url, 'error=username') !== false) {
                 echo "<b><p style='font-family: Arial; color: red;' align='center'>Dieser Benutzername existiert bereits!</p></b>";
-            }
+            }*/
             elseif (strpos($url, 'error=email') !== false) {
                 echo "<b><p style='font-family: Arial; color: red;' align='center'>Dieser Email wurde bereits registriert!</p></b>";
             }
@@ -22,7 +22,9 @@
 					<input style='width: 300px; border-radius: 5px; border-color: black; padding: 5px; margin: 5px;'type='text' name='last' placeholder='Nachname'> <br> 
 					<input style='width: 300px; border-radius: 5px; border-color: black; padding: 5px; margin: 5px;'type='text' name='email' placeholder='Email-Adresse'><br>
                     <input style='width: 300px; border-radius: 5px; border-color: black; padding: 5px; margin: 5px;'type='text' name='uid' placeholder='Username'><br>
-					<input style='width: 300px; border-radius: 5px; border-color: black; padding: 5px; margin: 5px;'type='password' name='pwd' placeholder='Passwort'>  <br>
+					<input style='width: 300px; border-radius: 5px; border-color: black; padding: 5px; margin: 5px;'type='list' name='pwd' placeholder='Passwort'>  <br>
+                    <input style='width: 300px; border-radius: 5px; border-color: black; padding: 5px; margin: 5px;'type='date' name='birth' placeholder='Geburtstag'>  <br>
+                    <input style='width: 300px; border-radius: 5px; border-color: black; padding: 5px; margin: 5px;'type='text' name='birthplace' placeholder='Geburtsort'>  <br>
 					<button style='cursor: pointer;border-radius: 5px;height: 22px;width: 90px; border: none; background-color: #222; color: white;'type='submit'>Registrieren</button>
 				</form>";
 			}
