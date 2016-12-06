@@ -2,26 +2,26 @@
     include 'config.php';
     session_start();
     $settings = "SELECT * FROM configuration";
-    foreach ($db->query($settings) as $row) {
+    $users = "SELECT rang FROM user";
+    foreach ($db->query($settings) as $row) { // PDO mit PHP/SQL vermischt, i know.
 
     }
-    
+    foreach ($db->query($users) as $col) { // PDO mit PHP/SQL vermischt, i know.
+
+    }
 ?>
 <html lang="de-de">
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
 	<meta charset="UTF-8">
-    <link href="style.css" rel="stylesheet">
 	<head>
-		<title><?php echo $row['sitename']; ?></title>
+		<title><?php echo $site; ?> - <?php echo $row['sitename']; ?></title>
         <style>
-            @import url('https://fonts.googleapis.com/css?family=Droid+Serif');
-            .bg-info{background-color:#f2dede;}
-            a.bg-info:focus,a.bg-info:hover{background-color:#e4b9b9;}
+            @import url('https://fonts.googleapis.com/css?family=Roboto:300');
             * {
                 margin: 0px;
                 padding: 0px;
                 text-decoration: none;
-                font-family: 'Droid Serif', 'sans-serif';
+                font-family: 'Roboto';
+                color: #222222;
             }
             IMG.displayed {
                 display: block;
@@ -31,28 +31,33 @@
             header {
                 width: 100%;
                 height: 60px;
-                background-color: #222222;+
-                position: fixed;
+                background-color: #ecf0f1;
+                position: fixed relative;
+                color: #222;
             }
             nav ul  {
-                float: right;
+                float: left;
                 margin-top: 20px;
-                margin-right: 60px;
+                margin-left: 60px;
             }
             nav ul li  {
                 list-style: none;
-                float: left;
+                float: right;
                 margin-right: 20px;
             }
             nav ul li a {
-                color: white;
+                color: #222;
+                font-size: 16px;
+            }
+            nav ul li a:hover {
+                color: black;
                 font-size: 16px;
             }
             nav ul form  {
-                float: left;
+                float: right;
             }
             nav ul form input  {
-                float: left;
+                float: right;
                 border: none;
                 margin-right: 6px;
                 border-radius: 5px;
@@ -61,7 +66,7 @@
                 padding-left: 5px;
             }
             nav ul form button {
-                float: left;
+                float: right;
                 border: none;
                 margin-right: 20px;
                 background-color: white;
@@ -73,33 +78,28 @@
                 width: 90px;
             }
         </style>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 
 	<body>
     <header>
         <nav>
             <ul>
+                <li>by<b>Reaper</b></li>
+                <li> | </li>
                 <li><a href="index.php">Startseite</a></li>
                 <li><a href="kontakt.php">Kontakt</a></li>
 
                 <?php
                     if (isset($_SESSION['id'])) {
-                        echo "<font style='color: white;'>Du bist mit der ID: ".$_SESSION['id']." eingeloggt!</font><li><a href='user.php''>Controlpanel</a></li><li><a href='msgs.php''>Posteingang</a></li>";
+                        echo "<font style='color: #222;'>Du bist mit der ID: ".$_SESSION['id']." eingeloggt!</font><li><a href='user.php''>Controlpanel</a></li><li><a href='msgs.php''>Posteingang</a></li>";
                         echo "<form action='includes/logout.inc.php'>
                             <button>Ausloggen</button>
                         </form>";
                         
                     } else {
-                        echo "<li><a href='register.php'>Registrieren</a></li><form action='includes/login.inc.php' method='POST'>
-                            <input type='text' name='uid' placeholder='Username'>  
-                            <input type='password' name='pwd' placeholder='Passwort'>
-                            <button type='submit'>Einloggen</button>
-                        </form>";
+                        echo "<li><a href='register.php'>Registrieren</a></li>";
                     }
-                    
                 ?>
             </ul>
-        </nav>    
+        </nav>    <br><br><br>
     </header>
-    <div class="bg-info"><marquee><?php echo $row['marquee']; ?></marquee></div>

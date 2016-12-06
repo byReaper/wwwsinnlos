@@ -1,13 +1,13 @@
 <style>
-		@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+        @import url('https://fonts.googleapis.com/css?family=Roboto:300');
 		p{
-			font-family: 'Droid Serif', 'sans-serif';
+			font-family: 'Roboto', 'sans-serif';
 			color: white;
 		}
 		body{
 			background-color: white;
 			color: black;
-			font-family: 'Droid Serif', 'sans-serif';
+			font-family: 'Roboto', 'sans-serif';
 		}
 		#box{
 			background-color: #c0392b;
@@ -29,7 +29,7 @@
 		}
 		
 		#p2{
-			font-family: 'Droid Serif';
+			font-family: 'Roboto';
 			color: black;
 		}
 				/* grid */

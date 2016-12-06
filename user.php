@@ -39,6 +39,13 @@ if (strpos($url, 'mottochange=success') !== false) {
 
 <p><b>Statistiken</p><a style="margin: 5px; color: black;" href="editprofile.php">Profil bearbeiten</a></b><hr>
 <p>UserID: <?php echo $_SESSION['id']; ?></p>
+<p>Rang: <?php if ($row['rang'] == 2) {
+    echo $row['rang']." (Administrator) (Du hast Zugriff auf das Administratorbackend unter <a style='color: black;' href='acp/index.php'>Administratorbackend</a>)";
+} 
+elseif ($row['rang'] == 1) {
+    echo $row['rang']." (Benutzer)";
+}
+?> </p>
 <p>Benutzername: <?php echo $row['uid']; ?></p>
 <p>Vorname: <?php echo $row['first']; echo " ".$row['last']; ?></p>
 <p>Geburtsdatum: <?php echo $row['birth']; ?></p>
@@ -48,6 +55,12 @@ if (strpos($url, 'mottochange=success') !== false) {
 <p>Geschlecht: <?php echo $row['gender']; ?></p>
 <p>Geburtsort: <?php echo $row['birthplace']; ?></p>
 <p>Motto: <?php echo $row['motto']; ?></p>
+
+<?php
+    if($row['rang'] == 2) {
+        echo "<a style='margin: 0px; color: black;' href='acp/index.php'>Adminbackend</a>";
+    }
+?>
 
 
 <?php

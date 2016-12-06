@@ -1,9 +1,9 @@
 <?php
+    $site = 'Registrierung';
     include 'header.php';
-?>
+?><br><br><br>
         <h1 style="color: black;" align="center"><u>Registrieren</u></h1>
 		<?php
-
             $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     	    if (strpos($url, 'error=empty') !== false) {
                 echo "<b><p style='font-family: Arial; color: red;' align='center'>Du hast ein freies Feld gelassen. Bitte fülle alles aus!</p></b>";

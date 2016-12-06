@@ -4,6 +4,10 @@ $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 if (strpos($url, 'info=success') !== false) {
     echo "<b><p style='font-family: Arial; color: green;' align='center'>Nachricht wurde erfolgreich gesendet.</p></b>";
 }
+$sql = "SELECT * FROM configuration";
+$result = mysqli_query($db,$sql);
+
+
 ?>
 <html>
     <style>
@@ -34,7 +38,7 @@ if (strpos($url, 'info=success') !== false) {
     </style>
     <body>
         <form action="send.php" method="POST">
-            <input type="text" name="nachricht" placeholder="Deine Nachricht">
+            <input type="text" name="nachricht" placeholder="Deine Nachricht" maxlength="<?php echo $row['msg_chars'];?>">
             <input type="text" name="empfanger" placeholder="Empfänger">
             <button name="submit">Absenden</button>
         </form>

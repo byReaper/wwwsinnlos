@@ -13,14 +13,14 @@
         footer {
             width: 100%;
             height: 30px;
-            background-color: #222;
+            background-color: #ecf0f1;
             position: fixed;
             bottom: 0;
             color: white;
             padding-top: 3px;
         }
         nav ul  {
-            float: right;
+            float: left;
             margin-top: 20px;
             margin-right: 60px;
         }
@@ -30,18 +30,22 @@
             margin-right: 20px;
         }
         nav ul li a {
-            color: white;
+            color: #222;
             font-size: 16px;
         }
         a {
             text-decoration: none;
-            color: white;
+            color: #222;
         }
         a:hover {
-            text-shadow: 0px 0 15px #fff;
+            text-decoration: none;
+            color: black;
+        }
+        #footerp {
+            color: #222;
         }
     </style>
     <footer>
-        <p align="center"><?php echo  $row['copyright']; ?> | Seitenversion: v<?php echo  $row['version']; ?> | <a href="impressum.php">Impressum</a> | <a href="updates.php">Updates</a> | <a href="todo.php">ToDo-Liste</a></p>
+        <p id="footerp" align="center"><?php echo  $row['copyright']; ?> | Seitenversion: <?php echo  $row['version']; ?> | <a href="impressum.php">Impressum</a> | <a href="updates.php">Updates</a> | <a href="todo.php">ToDo-Liste</a></p>
     </footer>
 </html>
