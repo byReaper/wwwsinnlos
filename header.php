@@ -1,83 +1,28 @@
 <?php
     include 'config.php'; 
-    $sid = $_SESSION['id'];
+    session_start();
+    if(isset($_SESSION['id'])){
+        $sid = $_SESSION['id'];
+    } else {
+        $sid = 0;
+    }
+    
     $settings = "SELECT * FROM configuration";
-    $users = "SELECT * FROM user";
+    $users = "SELECT * FROM user WHERE id='$sid'";
     foreach ($db->query($settings) as $row) { // PDO mit PHP/SQL vermischt, i know.
 
     }
     foreach ($db->query($users) as $col) { // PDO mit PHP/SQL vermischt, i know.
 
     }
+    $showrform = $row['showregister'];
 ?>
 <html lang="de-de">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/footer.php" rel="stylesheet">
 	<meta charset="UTF-8">
 	<head>
 		<title><?php echo $site; ?> - <?php echo $row['sitename']; ?></title>
-        <style>
-            @import url('https://fonts.googleapis.com/css?family=Roboto:300');
-            * {
-                margin: 0px;
-                padding: 0px;
-                text-decoration: none;
-                font-family: 'Roboto';
-                color: #222222;
-            }
-            IMG.displayed {
-                display: block;
-                margin-left: auto;
-                margin-right: auto 
-            }
-            header {
-                width: 100%;
-                height: 60px;
-                background-color: #ecf0f1;
-                position: fixed relative;
-                color: #222;
-            }
-            nav ul  {
-                float: left;
-                margin-top: 20px;
-                margin-left: 60px;
-            }
-            nav ul li  {
-                list-style: none;
-                float: right;
-                margin-right: 20px;
-            }
-            nav ul li a {
-                color: #222;
-                font-size: 16px;
-            }
-            nav ul li a:hover {
-                color: black;
-                font-size: 16px;
-            }
-            nav ul form  {
-                float: right;
-            }
-            nav ul form input  {
-                float: right;
-                border: none;
-                margin-right: 6px;
-                border-radius: 5px;
-                height: 22px;
-                width: 120px;
-                padding-left: 5px;
-            }
-            nav ul form button {
-                float: right;
-                border: none;
-                margin-right: 20px;
-                background-color: white;
-                color: black;
-                font-size: 16px;
-                cursor: pointer;
-                border-radius: 5px;
-                height: 22px;
-                width: 90px;
-            }
-        </style>
 	</head>
 
 	<body>
@@ -88,18 +33,19 @@
                 <li> | </li>
                 <li><a href="index.php">Startseite</a></li>
                 <li><a href="kontakt.php">Kontakt</a></li>
+                <?php if(isset($_SESSION['id'])){
+                        echo "<li><i>Du bist als <b>'".$col['uid']."'</b> eingeloggt. </i></li>";
+                }else{
+                    if($showrform == 'true'){
+                        echo '<form align="center" id="indexregister" method="POST" action="/core/sql_core.php">
+                                    <input style="width: 300px; padding: 5px;"type="text" name="uid" placeholder="Username">
+                                    <input type="hidden" value="login" name="core">
+                                    <input style="width: 300px; 5px; padding: 5px;"type="password" name="pwd" placeholder="Passwort">
+                                    <button type="submit">Login</button></form></div>   '; 
+                    }
+                }?>
 
-                <?php
-                    /*if (isset($_SESSION['id'])) {
-                        echo "<font style='color: #222;'>Du bist als <b>".$col['uid']."</b> eingeloggt. </font><li><a href='#''>Platzhalter</a></li><li><a href='#''>Platzhalter</a></li>";
-                        echo "<form action='includes/logout.inc.php'>  
-                            <button>Ausloggen</button>
-                        </form>";
-                        
-                    } else {
-                        echo "<li><a href='register.php'>Registrieren</a></li>";
-                    }*/
-                ?>
+
             </ul>
         </nav>    <br><br><br>
     </header>
