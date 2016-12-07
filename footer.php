@@ -46,6 +46,6 @@
         }
     </style>
     <footer>
-        <p id="footerp" align="center"><?php echo  $row['copyright']; ?> | Seitenversion: <?php echo  $row['version']; ?> | <a href="impressum.php">Impressum</a> | <a href="updates.php">Updates</a> | <a href="todo.php">ToDo-Liste</a></p>
+        <p id="footerp" align="center"><?php echo  $row['copyright']; ?> | Seitenversion: <?php echo  $row['version']; ?> | <a href="impressum.php">Impressum</a> | <a href="https://github.com/byReaper/wwwsinnlos">GitHub</a></p>
     </footer>
 </html>

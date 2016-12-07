@@ -1,8 +1,8 @@
 <?php
-    include 'config.php';
-    session_start();
+    include 'config.php'; 
+    $sid = $_SESSION['id'];
     $settings = "SELECT * FROM configuration";
-    $users = "SELECT rang FROM user";
+    $users = "SELECT * FROM user";
     foreach ($db->query($settings) as $row) { // PDO mit PHP/SQL vermischt, i know.
 
     }
@@ -90,15 +90,15 @@
                 <li><a href="kontakt.php">Kontakt</a></li>
 
                 <?php
-                    if (isset($_SESSION['id'])) {
-                        echo "<font style='color: #222;'>Du bist mit der ID: ".$_SESSION['id']." eingeloggt!</font><li><a href='user.php''>Controlpanel</a></li><li><a href='msgs.php''>Posteingang</a></li>";
-                        echo "<form action='includes/logout.inc.php'>
+                    /*if (isset($_SESSION['id'])) {
+                        echo "<font style='color: #222;'>Du bist als <b>".$col['uid']."</b> eingeloggt. </font><li><a href='#''>Platzhalter</a></li><li><a href='#''>Platzhalter</a></li>";
+                        echo "<form action='includes/logout.inc.php'>  
                             <button>Ausloggen</button>
                         </form>";
                         
                     } else {
                         echo "<li><a href='register.php'>Registrieren</a></li>";
-                    }
+                    }*/
                 ?>
             </ul>
         </nav>    <br><br><br>
